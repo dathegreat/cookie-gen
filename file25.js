@@ -1,0 +1,1 @@
+document.cookie = 'testCookie=testValue; Path=/{i}';
