@@ -14,14 +14,6 @@ function setCookie(name: string, value: string, domain: string, path: string, ex
     document.cookie = cookieString;
 }
 
-function generateNetworkTraffic(paths: string[]): void {
-    paths.forEach(path => {
-        fetch(path)
-            .then(response => console.log(`Request to ${path} completed with status: ${response.status}`))
-            .catch(error => console.error(`Request to ${path} failed: ${error}`));
-    });
-}
-
 function generatePaths(basePath: string, count: number): string[] {
     const paths: string[] = [];
     for (let i = 1; i <= count; i++) {
@@ -30,12 +22,17 @@ function generatePaths(basePath: string, count: number): string[] {
     return paths;
 }
 
+function setCookieWithPaths(paths: string[]){
+    paths.forEach(path => {
+        setCookie('testCookie', 'testValue', domain, path, new Date('2024-12-31'), false, true);
+    });
+}
+
 // Example usage:
 const domain = window.location.hostname;
 const basePath = window.location.pathname;
 const numberOfPaths = 100;
 const paths = generatePaths(basePath, numberOfPaths);
 
-setCookie('testCookie', 'testValue', domain, basePath, new Date('2024-12-31'), false, true);
-generateNetworkTraffic(paths);
-document.body.innerHTML = `<h1>Network traffic generated. Fetched ${numberOfPaths} paths. Check the console for details.</h1>`;
+setCookieWithPaths(paths);
+document.body.innerHTML = `<h1>Cookie set with ${numberOfPaths} paths. Check the console for details.</h1>`;
