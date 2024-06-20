@@ -31,10 +31,11 @@ function generatePaths(basePath: string, count: number): string[] {
 }
 
 // Example usage:
-const basePath = '/test';
+const domain = window.location.hostname;
+const basePath = window.location.pathname;
 const numberOfPaths = 100;
 const paths = generatePaths(basePath, numberOfPaths);
 
-setCookie('testCookie', 'testValue', window.location.hostname, basePath, new Date('2024-12-31'), false, true);
+setCookie('testCookie', 'testValue', domain, basePath, new Date('2024-12-31'), false, true);
 generateNetworkTraffic(paths);
 document.body.innerHTML = `<h1>Network traffic generated. Fetched ${numberOfPaths} paths. Check the console for details.</h1>`;
