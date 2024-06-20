@@ -27,8 +27,8 @@ function generatePaths(basePath, count) {
 }
 // Example usage:
 var basePath = '/test';
-var numberOfPaths = 1000;
+var numberOfPaths = 100;
 var paths = generatePaths(basePath, numberOfPaths);
-setCookie('testCookie', 'testValue', 'test.com', basePath, new Date('2024-12-31'), false, false);
+setCookie('testCookie', 'testValue', window.location.hostname + basePath, basePath, new Date('2024-12-31'), false, false);
 generateNetworkTraffic(paths);
-document.getElementsByTagName("h1")[0].innerText = "Network traffic generated. Fetched ".concat(numberOfPaths, " paths. Check the console for details.");
+document.body.innerHTML = "<h1>Network traffic generated. Fetched ".concat(numberOfPaths, " paths. Check the console for details.</h1>");
