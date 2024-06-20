@@ -29,4 +29,4 @@ var baseDomain = window.location.hostname.split('.').slice(-2).join('.');
 var numberOfDomains = 100;
 var domains = generateDomains(baseDomain, numberOfDomains);
 setCookieWithDomains(domains);
-document.body.innerHTML = "<h1>Cookie set with ".concat(numberOfDomains, " sub-domains. Check the console for details.</h1>");
+document.body.innerHTML = "<h1>Cookie set with ".concat(numberOfDomains, " sub-domains.<br>").concat(domains.join("<br>"), "</h1>");

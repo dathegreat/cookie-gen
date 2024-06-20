@@ -35,4 +35,4 @@ const numberOfDomains = 100;
 const domains = generateDomains(baseDomain, numberOfDomains);
 
 setCookieWithDomains(domains);
-document.body.innerHTML = `<h1>Cookie set with ${numberOfDomains} sub-domains. Check the console for details.</h1>`;
+document.body.innerHTML = `<h1>Cookie set with ${numberOfDomains} sub-domains.<br>${domains.join("<br>")}</h1>`;
