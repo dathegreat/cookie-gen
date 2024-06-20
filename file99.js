@@ -1,1 +1,1 @@
-document.cookie = 'testCookie=testValue; Path=/{i}';
+document.cookie = 'testCookie=testValue; Path=/99';
